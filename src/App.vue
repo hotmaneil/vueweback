@@ -1,15 +1,36 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
-    <!-- <router-view></router-view> -->
-    <h1>App H1</h1>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active">
+            <router-link class="nav-link" :to="{name:'首頁'}">Home</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link class="nav-link" to="/page">Page</router-link>
+          </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
+  </nav>
+
+    <img src="./assets/logo.png">
+    <!-- <HelloWorld/> -->
+    <router-view name='menu'></router-view>
+    <div class="container">
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -21,36 +42,18 @@ export default {
   name: 'App',
   components: {
     HelloWorld
-  },
-
-  created(){
-    this.$http.get('https://randomuser.me/api/')
-    .then((response)=>{
-      console.log(response.data)
-    });
   }
 }
 </script>
 
 <style lang="scss">
-//  #app {
-//     font-family: 'Avenir', Helvetica, Arial, sans-serif;
-//     -webkit-font-smoothing: antialiased;
-//     -moz-osx-font-smoothing: grayscale;
-//     text-align: center;
-//     color: #2c3e50;
-//     margin-top: 60px;
-//   }
-
-  // $color:black;
-
-  // body{
-  //   background-color: $color;
-  // } 
-
+/* #app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+} */
   @import "~bootstrap/scss/bootstrap";
 </style>
-
- 
-
-  // @import "~bootstrap/scss/bootstrap";
